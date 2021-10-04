@@ -203,3 +203,27 @@ nav .menu{
         flex-direction: row;
     }
 }
+@media only screen and (min-width:801px) {
+    nav .menu{
+        display: none;
+    }
+    nav ul{
+        display: flex;
+    }
+    #boxes{
+        flex-direction: column;
+    }
+    .contenedor2{
+        flex-direction: row;
+        width: 75%;
+    }
+    #aside{
+        width: 30%;
+    }
+    .boxes1{
+        flex-direction: row;
+    }
+    .box2{
+        flex-direction: row;
+    }
+}
