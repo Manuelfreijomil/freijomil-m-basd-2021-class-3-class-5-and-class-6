@@ -182,4 +182,24 @@ nav .menu{
     text-decoration: underline;
     text-decoration-color: #fff solid;
 }
-
+@media only screen and (min-width:600px) {
+    nav ul{
+        display: flex;
+    }
+    #boxes{
+        flex-direction: column;
+    }
+    nav .menu{
+        display: none;
+    }
+    
+    #aside{
+        width: 100%;
+    }
+    .box{
+        width: 60%;
+    }
+    .boxes1{
+        flex-direction: row;
+    }
+}
