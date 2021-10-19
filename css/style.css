@@ -88,6 +88,29 @@ nav .menu{
     margin:auto;
     width: 100%;
 }
+#fields{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin:auto;
+    width: 100%;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.mg{
+    margin: 2px;
+}
+#btm{
+    display: flex;
+    justify-content: center;
+    width: 20%;
+}
 .box{
     text-align: center;
     padding: 10px;
@@ -247,6 +270,12 @@ footer a:hover{
     .news1{
         width: 100%;
     }
+    .column{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 @media only screen and (min-width:801px) {
     nav .menu{
@@ -310,5 +339,44 @@ footer a:hover{
         height: 300px;
         object-fit:cover;
     }
-
+    .column{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    #li-container{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 15px;
+        border:3px #000 solid;
+        margin: 2px 0 2px 0;
+        padding: 8px 0 8px 0;
+    }
+    #li-container li{
+        padding: 5px;
+        margin: 3px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .input-span-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .label-container{
+        margin-right: 15px;
+        width: 60%;
+        height: auto;
+    }
+    .input-span-container span{
+        font-weight: bold;
+        font-size: small;
+        text-align: center;
+        color: #ff0000;
+    }
 }

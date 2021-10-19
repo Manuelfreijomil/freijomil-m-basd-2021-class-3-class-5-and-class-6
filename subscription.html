@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MF Newslatter</title>
+    <link rel="stylesheet" href="../semana-3/css/reset.css">
+    <link rel="stylesheet" href="../semana-3/css/style.css">
+    <link rel="images" href=".../semana-3/images">
+    <script src='../semana-3/form-validation.js'></script>
+</head>
+<body>
+    <header>
+        <h1>
+            M.F. Newsletter
+        </h1>
+        <div id="date">
+            22:00 - 3/10/2021
+        </div>
+    </header>
+    <nav id="navbar">
+        <div class="contenedor">
+            <ul>
+                <li>
+                    <a href="#">
+                        HOME
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        SPORTS
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        INTERVIEWS
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        POLITICS
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        CRIMES
+                    </a>
+                </li>
+            </ul>
+            <div class="menu">
+                <span>
+                    ☰ Menú
+                </span>
+            </div>
+        </div>
+    </nav>
+    <div class="main-conteiner">
+        <aside id="aside-ads">
+            <div class="aside-ads-conteiner">
+                <a href="#">
+                    <img src="images\ads1.JPG" alt="ads1">   
+                </a>
+            </div>
+        </aside>
+        <form id="fields">
+            <div class="column mg">
+               <ul id="li-container">
+                   <li>
+                       <div class="label-container">
+                            <label for="name">
+                                Nombre completo
+                            </label>
+                        </div>
+                        <div class="input-span-container">
+                            <input type="text" name="full-name" id="full-name" placeholder="Ingrese su nombre completo">
+                            <span id="error-full-name"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="label-container">
+                            <label for="email">
+                                Email
+                            </label>
+                        </div>
+                        <div class="input-span-container">
+                            <input type="email" name="email" id="email" placeholder="Ingrese su email.">
+                            <span id="error-email"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="label-container">
+                            <label for="password">
+                                Contraseña
+                            </label>
+                        </div>
+                        <div class="input-span-container">
+                            <input type="password" name="password" id="password" placeholder="Ingrese su contraseña.">
+                            <span id="error-password"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="label-container">
+                            <label for="r-password">
+                                Repetir Contraseña
+                            </label>
+                        </div>
+                        <div class="input-span-container">
+                            <input type="password" name="repet-password" id="repet-password" placeholder="Ingrese de nuevo su contraseña.">
+                            <span id="error-r-password"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="label-container">
+                            <label for="age">
+                                Edad
+                            </label>
+                        </div>
+                        <div class="input-span-container">
+                            <input type="number" name="age" id="age" placeholder="Ingrese su edad.">
+                            <span id="error-age"></span> 
+                        </div>
+                    </li>
+                    <li>
+                        <div class="label-container">
+                            <label for="phone">
+                                Teléfono
+                            </label>
+                        </div>
+                        <div class="input-span-container">
+                            <input type="text" name="phone" id="phone" placeholder="Ingrese su número celular.">
+                            <span id="error-phone"></span> 
+                        </div>
+                    </li>
+                    <li>
+                        <div class="label-container">
+                            <label for="address">
+                                Dirección
+                            </label>
+                        </div>
+                        <div class="input-span-container">
+                            <input type="text" name="address" id="address" placeholder="Ingrese su dirección.">
+                            <span id="error-address"></span> 
+                        </div>
+                    </li>
+                    <li>
+                        <div class="label-container">
+                            <label for="city">
+                                Ciudad
+                            </label>
+                        </div>
+                        <div class="input-span-container">
+                            <input type="text" name="city" id="city" placeholder="Ingrese la ciudad donde vive.">
+                            <span id="error-city"></span> 
+                        </div>
+                    </li>
+                    <li>
+                        <div class="label-container">
+                            <label for="zip-code">
+                                Código Postal
+                            </label>
+                        </div>
+                        <div class="input-span-container">
+                            <input type="text" name="zip-code" id="zip-code" placeholder="Ingrese la ciudad donde vive.">
+                            <span id="error-zip"></span> 
+                        </div>
+                    </li>
+                    <li>
+                        <div class="label-container">
+                            <label for="dni">
+                                DNI
+                            </label>
+                        </div>
+                        <div class="input-span-container">
+                            <input type="text" name="dni" id="dni" placeholder="Ingrese la ciudad donde vive.">
+                            <span id="error-dni"></span> 
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="column mg">
+                <button id="btm">
+                    Enviar  
+                </button>
+            </div>
+        </form>
+        <aside id="aside-news">
+           <h2>
+               Noticias Destacadas
+           </h2>
+           <div class="aside-conteiner">
+                <a href="#">
+                    <p>
+                        River, ante su gente y con una gran tarde de Álvarez, venció a Boca y es puntero.
+                    </p>
+                </a>
+            </div>
+            <div class="aside-conteiner">
+                <a href="#">
+                    <p>
+                        El Gobierno busca restablecer un vínculo positivo con el campo mediante anuncios claves para el sector.
+                    </p>
+                </a>
+            </div>
+        </aside>
+    </div>    
+    <footer>
+        <a href="">
+            <span>
+                QUIÉNES SOMOS
+            </span>
+        </a>
+        <a href="">
+            <span>
+                TÉRMINOS Y CONDICIONES
+            </span>
+        </a>
+        <a href="">
+            <span>
+                AYUDA
+            </span>
+        </a>
+        <a href="">
+            <span>
+                CONTACTO
+            </span>
+        </a>
+        <a href="">
+            <span> 
+                ANUNCIA CON NOSOTROS
+            </span>
+        </a>
+        <p>
+            © Copyright 2021 MF ® Todos los derechos reservados.
+            Rosario, Santa Fe. Argentina.
+        </p>
+    </footer>
+</body>
+</html>
