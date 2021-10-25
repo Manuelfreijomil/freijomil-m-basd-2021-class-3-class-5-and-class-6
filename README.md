@@ -24,7 +24,7 @@
 
 # Link GitHub Pages
 
-- https://manuelfreijomil.github.io/semana-3/
+- https://github.com/Manuelfreijomil/freijomil-m-basd-2021-class-3-class-5-and-class-6.git
 
 # Author
 
