@@ -14,6 +14,14 @@
 
 - Modifications to style.css to make subscription form responsive.
 
+# Week 6
+
+- Using Modal Box insted of alert to show errors/success data.
+
+- New CSS to apply style to the Modal Box
+
+- Changes into subscription.html. Adding a div that contains the modal content.
+
 # Link GitHub Pages
 
 - https://manuelfreijomil.github.io/semana-3/
