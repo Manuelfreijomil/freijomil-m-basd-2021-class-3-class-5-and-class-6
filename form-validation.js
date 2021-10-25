@@ -328,6 +328,16 @@ window.onload = function () {
     
     function validateBtm(e){
         e.preventDefault();
+        validateRePassword();
+        validateName();
+        validatePhone();
+        validateDni();
+        validateEmail();
+        validateAge();
+        validateCity();
+        validateZip();
+        validatePassword();
+        
         var errorFullName=document.getElementById('error-full-name')
         var errorEmail=document.getElementById('error-email')
         var errorPassword=document.getElementById('error-password')
@@ -342,7 +352,7 @@ window.onload = function () {
         var modal=document.getElementById('myModal');
         window.onclick = function(event) {
             if (event.target == modal) {
-                modal.style.display = 'none'
+                modal.style.display = 'none';
             }
         }
         close.onclick = function closeAll (e){
@@ -388,12 +398,10 @@ window.onload = function () {
                     case 9:
                         errorsArray.push('Dni: '+ errors[i]);
                         break;
-
-                    
                 }
             }
         }
-        var allOk=[Name.value,Email.value,Password.value,Rpassword.value,Age.value,Phone.value,Address.value,City.value,Zip.value,Dni.value];
+        var allOk=['Nombre completo: ' + Name.value,Email.value,Password.value,Rpassword.value,Age.value,Phone.value,Address.value,City.value,Zip.value,Dni.value];
         console.log(allOk);
         
         if(errorsArray.length !== 0){
@@ -403,64 +411,69 @@ window.onload = function () {
             modal.style.display = 'block'
             useFetch();
         }
-
+        
         function modalOk(){
+            ulModal.innerHTML='';
             for (let i = 0; i < allOk.length; i++) {
                 ulModal.innerHTML = ulModal.innerHTML + '<li>' + allOk[i] + '</li>'
             }
+            allOk=[];
         }
         function modalError(){
+            ulModal.innerHTML='';
             for (let i = 0; i < errorsArray.length; i++) {
                 ulModal.innerHTML = ulModal.innerHTML + '<li>' +errorsArray[i] + '</li>'
             }
+            errorsArray=[];
         }
         function netE(err) {
-            ulModal.innerHTML = 'Newtwork Error: ' + err
+            ulModal.innerHTML = 'Newtwork Error: ' + err;
         }
         function useFetch() {
             fetch(url)
                 .then(function(res) {
                     if (res.status === 200) {
-                        return res.json()
+                        return res.json();
                     } else {
-                        throw res.status
+                        throw Error(res.status);
                     }
                 })
                 .then (function(data) {
                     console.log(data)
-                    modalOk()
-                    sendSt()
+                    modalOk();
+                    sendSt();
                 })
                 .catch(function(err) {
-                    netE(err)
-                    console.log(err)
+                    netE(err);
+                    console.log(err);
                 })
         }
-        function sendSt() {
-            localStorage.setItem('name', Name.value)
-            localStorage.setItem('email', Email.value)
-            localStorage.setItem('password', Password.value)
-            localStorage.setItem('rpassword', Rpassword.value)
-            localStorage.setItem('age', Age.value)
-            localStorage.setItem('phone', Phone.value)
-            localStorage.setItem('address', Address.value)
-            localStorage.setItem('city', City.value)
-            localStorage.setItem('postalcode', Zip.value)
-            localStorage.setItem('dni', Dni.value)
-        }
-
-        function getSt(){
-            if (localStorage.getItem('name') != '') Name.value = localStorage.getItem('name')
-            if (localStorage.getItem('email') != '') Email.value = localStorage.getItem('email')
-            if (localStorage.getItem('password') != '') Password.value = localStorage.getItem('password')
-            if (localStorage.getItem('rpassword') != '') Rpassword.value = localStorage.getItem('rassword')
-            if (localStorage.getItem('age') != '') Age.value = localStorage.getItem('age')
-            if (localStorage.getItem('phone') != '') Phone.value = localStorage.getItem('phone')
-            if (localStorage.getItem('address') != '') Address.value = localStorage.getItem('address')
-            if (localStorage.getItem('city') != '') City.value = localStorage.getItem('city')
-            if (localStorage.getItem('postalcode') != '') Zip.value = localStorage.getItem('postalcode')
-            if (localStorage.getItem('dni') != '') Dni.value = localStorage.getItem('dni')
-        }
-        window.onload = getSt()     
+        
+        
     }
+    function sendSt() {
+        localStorage.setItem('name', Name.value)
+        localStorage.setItem('email', Email.value)
+        localStorage.setItem('password', Password.value)
+        localStorage.setItem('rpassword', Rpassword.value)
+        localStorage.setItem('age', Age.value)
+        localStorage.setItem('phone', Phone.value)
+        localStorage.setItem('address', Address.value)
+        localStorage.setItem('city', City.value)
+        localStorage.setItem('zip', Zip.value)
+        localStorage.setItem('dni', Dni.value)
+    }
+    function getSt(){
+        if (localStorage.getItem('name') != '') Name.value = localStorage.getItem('name')
+        if (localStorage.getItem('email') != '') Email.value = localStorage.getItem('email')
+        if (localStorage.getItem('password') != '') Password.value = localStorage.getItem('password')
+        if (localStorage.getItem('rpassword') != '') Rpassword.value = localStorage.getItem('rassword')
+        if (localStorage.getItem('age') != '') Age.value = localStorage.getItem('age')
+        if (localStorage.getItem('phone') != '') Phone.value = localStorage.getItem('phone')
+        if (localStorage.getItem('address') != '') Address.value = localStorage.getItem('address')
+        if (localStorage.getItem('city') != '') City.value = localStorage.getItem('city')
+        if (localStorage.getItem('zip') != '') Zip.value = localStorage.getItem('postalcode')
+        if (localStorage.getItem('dni') != '') Dni.value = localStorage.getItem('dni')
+    }
+    getSt();
 }

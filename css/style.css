@@ -145,10 +145,12 @@ nav .menu{
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: #fff;
+    color: #fff;
     text-align: center;
     font-size: medium;
     font-weight: bold;
+    border: none ;
+    background-color: #000;
 }
 .box{
     text-align: center;
