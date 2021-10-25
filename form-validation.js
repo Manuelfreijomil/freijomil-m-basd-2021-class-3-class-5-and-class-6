@@ -321,10 +321,11 @@ window.onload = function () {
     //Botton Validation
 
     var Btm=document.getElementById('btm');
+    var close=document.getElementById('close');
     var errorsArray=[];
 
-    Btm.onclick=validateBtm
-
+    Btm.onclick=validateBtm;
+    
     function validateBtm(e){
         e.preventDefault();
         var errorFullName=document.getElementById('error-full-name')
@@ -337,8 +338,22 @@ window.onload = function () {
         var errorCity=document.getElementById('error-city')
         var errorZip=document.getElementById('error-zip')
         var errorDni=document.getElementById('error-dni')
-    
         var errors=[errorFullName.innerHTML,errorEmail.innerHTML,errorPassword.innerHTML,errorRpassword.innerHTML,errorAge.innerHTML,errorPhone.innerHTML,errorAddress.innerHTML,errorCity.innerHTML,errorZip.innerHTML,errorDni.innerHTML]
+        var modal=document.getElementById('myModal');
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none'
+            }
+        }
+        close.onclick = function closeAll (e){
+            modal.style.display='none';
+        }
+        Btm.onlick = function showModal(e) {
+            modal.style.display = 'block'
+        }
+        var url = 'https://curso-dev-2021.herokuapp.com/newsletter?name='+Name.value+'&email='+Email.value+'&password='+Password.value+'&confirmPassword='+Rpassword.value+'&age='+Age.value+'&phoneNumber='+Phone.value+'&address='+Address.value+'&city='+City.value+'&postalCode='+Zip.value+'&id='+Dni.value;
+
+        var ulModal=document.getElementById('ul-modal');
 
         for(var i=0; i < 9 ; i++){
             if(lookForUpperLetter(errors[i]) === 1){
@@ -378,12 +393,74 @@ window.onload = function () {
                 }
             }
         }
-        if(errorsArray.length !== 0){
-            alert(errorsArray.join('\n'));
-        }else{
-            var allOk=[`Nombre completo: ${Name.value}`,`Email: ${Email.value}`,`Contraseña: ${Password.value}`,`Repet password: ${Rpassword.value}`,`Edad : ${Age.value}`,`Teléfono: ${Phone.value}`,`Dirección: ${Address.value}`,`Ciudad: ${City.value}`,`Código Postal: ${Zip.value}`,`Dni: ${Dni.value}`];
-            alert(allOk.join('\n'));
-        }
+        var allOk=[Name.value,Email.value,Password.value,Rpassword.value,Age.value,Phone.value,Address.value,City.value,Zip.value,Dni.value];
+        console.log(allOk);
         
-}
+        if(errorsArray.length !== 0){
+            modal.style.display = 'block'
+            modalError();
+        }else{
+            modal.style.display = 'block'
+            useFetch();
+        }
+
+        function modalOk(){
+            for (let i = 0; i < allOk.length; i++) {
+                ulModal.innerHTML = ulModal.innerHTML + '<li>' + allOk[i] + '</li>'
+            }
+        }
+        function modalError(){
+            for (let i = 0; i < errorsArray.length; i++) {
+                ulModal.innerHTML = ulModal.innerHTML + '<li>' +errorsArray[i] + '</li>'
+            }
+        }
+        function netE(err) {
+            ulModal.innerHTML = 'Newtwork Error: ' + err
+        }
+        function useFetch() {
+            fetch(url)
+                .then(function(res) {
+                    if (res.status === 200) {
+                        return res.json()
+                    } else {
+                        throw res.status
+                    }
+                })
+                .then (function(data) {
+                    console.log(data)
+                    modalOk()
+                    sendSt()
+                })
+                .catch(function(err) {
+                    netE(err)
+                    console.log(err)
+                })
+        }
+        function sendSt() {
+            localStorage.setItem('name', Name.value)
+            localStorage.setItem('email', Email.value)
+            localStorage.setItem('password', Password.value)
+            localStorage.setItem('rpassword', Rpassword.value)
+            localStorage.setItem('age', Age.value)
+            localStorage.setItem('phone', Phone.value)
+            localStorage.setItem('address', Address.value)
+            localStorage.setItem('city', City.value)
+            localStorage.setItem('postalcode', Zip.value)
+            localStorage.setItem('dni', Dni.value)
+        }
+
+        function getSt(){
+            if (localStorage.getItem('name') != '') Name.value = localStorage.getItem('name')
+            if (localStorage.getItem('email') != '') Email.value = localStorage.getItem('email')
+            if (localStorage.getItem('password') != '') Password.value = localStorage.getItem('password')
+            if (localStorage.getItem('rpassword') != '') Rpassword.value = localStorage.getItem('rassword')
+            if (localStorage.getItem('age') != '') Age.value = localStorage.getItem('age')
+            if (localStorage.getItem('phone') != '') Phone.value = localStorage.getItem('phone')
+            if (localStorage.getItem('address') != '') Address.value = localStorage.getItem('address')
+            if (localStorage.getItem('city') != '') City.value = localStorage.getItem('city')
+            if (localStorage.getItem('postalcode') != '') Zip.value = localStorage.getItem('postalcode')
+            if (localStorage.getItem('dni') != '') Dni.value = localStorage.getItem('dni')
+        }
+        window.onload = getSt()     
+    }
 }
